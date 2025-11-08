@@ -1,228 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>All-in-one-converter</title>
-  
-  
-  
-  
-  <style>
-  
-  /* Hide show button */
-   :root {
-  --bg1: skyblue;
-  --bg2: tomato;
-  --accent: aqua;
-  --text: white;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
-  color: var(--text);
-  transition: background 0.45s;
-}
-
-body.bg-image {
-  background: url('https://mrdesigner-create.github.io/photoes/Beautiful-Rose.jpg') center/cover no-repeat fixed;
-}
-
-header {
-  padding: 32px 16px;
-  text-align: center;
-}
-
-h1 {
-  margin: 0 0 8px;
-  font-size: clamp(24px, 3.3vw, 38px);
-}
-
-.toggle-bg {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 8px 14px;
-  background: var(--accent);
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 10000;
-  color: black;
-}
-
-
-
-
-
-
-
-
-
-
-/* footer Make the page wrapper take full height */
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-.page-wrapper {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Main content grows to fill space */
-.wrap {
-    flex: 1;
-}
-
-/* Footer at the bottom */
-.page-footer {
-    background-color: skyblue;  /* readable color */
-    color: darkblue;
-    text-align: center;
-    padding: 10px 10px;
-    font-size: 12px;
-    border-top: 2px solid darkblue;
-}
-
-
-
-
-
-/* Center the button container */
-.button-container {
-    text-align: center;  /* center everything inside this div */
-    margin-top: 20px;    /* space from top */
-}
-
-/* Style for the button */
-.colored-button {
-    display: inline-block;           /* keeps button size proper */
-    padding: 12px 20px;              /* space inside button */
-    background-color: orange;        /* plain orange background */
-    color: white;                    /* white text */
-    font-weight: bold;               /* make text bold */
-    border-radius: 8px;              /* rounded corners */
-    text-decoration: none;           /* remove underline */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* soft shadow */
-    transition: background-color 0.3s, transform 0.2s; /* smooth effects */
-}
-
-/* Optional: hover effect */
-.colored-button:hover {
-    background-color: darkorange;    /* darker shade when hovered */
-    transform: scale(1.05);          /* slight enlarge on hover */
-}
-
-   
-  </style>
-  
-</head>
-  
-  
-  
-  
-  <body class="bg-image">
-  <div class="toggle-bg" id="toggleBgBtn">🌅 Hide / Show Background</div>
-  
-  
-  <header style="color: darkred;">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>All-in-one-converter</title>
     
-    <h1 <h1 style="color: darkred;">All-in-one-converter</h1>
-    <div class="subtitle">Combine PDFs and convert between PDF ↔ Word ↔ Excel (and Images)</div>
- <hr>
- 
- </header>
+    <style>
+    /* Hide show button */
+    :root {
+        --bg1: skyblue;
+        --bg2: tomato;
+        --accent: aqua;
+        --text: white;
+    }
 
+    * {
+        box-sizing: border-box;
+    }
 
+    body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+        background: linear-gradient(135deg, var(--bg1), var(--bg2));
+        color: var(--text);
+        transition: background 0.45s;
+    }
 
+    body.bg-image {
+        background: url('https://mrdesigner-create.github.io/photoes/Beautiful-Rose.jpg') center/cover no-repeat fixed;
+    }
 
-<!-- Button with readable colors and link --> 
-                       <div class="button-container"> 
+    header {
+        padding: 32px 16px;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0 0 8px;
+        font-size: clamp(24px, 3.3vw, 38px);
+    }
+
+    .toggle-bg {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 8px 14px;
+        background: var(--accent);
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 10000;
+        color: black;
+    }
+
+    /* footer Make the page wrapper take full height */
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .page-wrapper {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Main content grows to fill space */
+    .wrap {
+        flex: 1;
+    }
+
+    /* Footer at the bottom */
+    .page-footer {
+        background-color: skyblue; /* readable color */
+        color: darkblue;
+        text-align: center;
+        padding: 10px 10px;
+        font-size: 12px;
+        border-top: 2px solid darkblue;
+    }
+    
+    /* --- Styles for Horizontal Row Alignment --- */
+    
+    .horizontal-buttons-wrapper {
+        display: flex;
+        flex-direction: row; /* Sets items side-by-side */
+        justify-content: center; /* Centers the button group horizontally */
+        align-items: center; 
+        gap: 20px; /* Increased gap for better separation */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .button-container {
+        margin: 0; 
+    }
+
+    /* --- Style for the button with 3D MOTION/GRADIENT --- */
+    .colored-button {
+        padding: 12px 25px; 
+        
+        background: linear-gradient(135deg, #FF7F50, #FF4500); 
+        
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        
+        /* 3D Base: Large shadow creates the "lift" */
+        box-shadow: 0 8px 15px rgba(0,0,0,0.4); 
+        /* Snappy transition for motion: */
+        transition: all 0.2s ease-out; 
+        
+        min-width: auto; 
+        text-align: center;
+    }
+
+    /* Hover Effect: The 3D Press Animation */
+    .colored-button:hover {
+        background: linear-gradient(135deg, #FF6347, #E94057); 
+        
+        /* Motion: Moves the button down 4 pixels */
+        transform: translateY(4px); 
+        
+        /* 3D Effect: Reduces the shadow to simulate being pressed down */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+    }
+    
+    /* --- END MODIFIED CODE --- */
+    
+    </style>
+    
+</head>
+    
+    
+    
+    
+<body class="bg-image">
+    <div class="toggle-bg" id="toggleBgBtn">🌅 Hide / Show Background</div>
+    
+    
+    <header style="color: darkred;">
+        
+        <h1 style="color: darkred;">All-in-one-converter</h1>
+        <div class="subtitle">Combine PDFs and convert between PDF ↔ Word ↔ Excel (and Images)</div>
+        <hr>
+    
+    </header>
+
+    <div class="horizontal-buttons-wrapper">
+    
+        <div class="button-container">
             <a href="https://mrdesigner-create.github.io/converter/" target="_blank" class="colored-button">
- Converter
-  </a>  
-</div> 
-
-<!-- Button with readable colors and link --> 
-                       <div class="button-container"> 
+                Converter
+            </a>
+        </div>
+    
+        <div class="button-container">
             <a href="https://mrdesigner-create.github.io/Double/" target="_blank" class="colored-button">
- Double 
-  </a>  
-</div> 
-
-	  </div> 
-
-<!-- Button with readable colors and link --> 
-                       <div class="button-container"> 
+                Double
+            </a>
+        </div>
+    
+        <div class="button-container">
             <a href="https://mrdesigner-create.github.io/Minimize/" target="_blank" class="colored-button">
-Minimize 
-  </a>  
-</div> 
+                Minimize
+            </a>
+        </div>
+    
+    </div> <div class="page-wrapper">
+    <div class="wrap">
+        <div class="grid" id="converterGrid"></div>
+        <p style="text-align:center;opacity:.9;margin-top:30px">⚡ Fast client-side converter</p>
+    </div>
 
-
-
-
-
-
-
-
-
-<div class="page-wrapper">
-  <div class="wrap">
-    <div class="grid" id="converterGrid"></div>
-    <p style="text-align:center;opacity:.9;margin-top:30px">⚡ Fast client-side converter</p>
-  </div>
-
-  <footer class="page-footer">
-    <div class="footer-content">
-      <b><p>© 2025 Your Website Name. All rights reserved. Made with ❤️ for fast client-side conversion.</p>
-    </b>
-	
-	</div>
-  </footer>
+    <footer class="page-footer">
+        <div class="footer-content">
+            <b><p>© 2025 Your Website Name. All rights reserved. Made with ❤️ for fast client-side conversion.</p>
+            </b>
+            
+        </div>
+    </footer>
 </div>
 
-
-
 <script>
-  // Get the button and the body element
-  const toggleBtn = document.getElementById('toggleBgBtn');
-  const body = document.body;
+    // Get the button and the body element
+    const toggleBtn = document.getElementById('toggleBgBtn');
+    const body = document.body;
 
-  // Track state
-  let bgVisible = true; // starts with image shown
+    // Track state
+    let bgVisible = true; // starts with image shown
 
-  toggleBtn.addEventListener('click', () => {
-    if (bgVisible) {
-      // Remove background image, show gradient
-      body.classList.remove('bg-image');
-      bgVisible = false;
-      toggleBtn.textContent = "🌅 Show Background";
-    } else {
-      // Add background image
-      body.classList.add('bg-image');
-      bgVisible = true;
-      toggleBtn.textContent = "🌅 Hide Background";
-    }
-  });
+    toggleBtn.addEventListener('click', () => {
+        if (bgVisible) {
+            // Remove background image, show gradient
+            body.classList.remove('bg-image');
+            bgVisible = false;
+            toggleBtn.textContent = "🌅 Show Background";
+        } else {
+            // Add background image
+            body.classList.add('bg-image');
+            bgVisible = true;
+            toggleBtn.textContent = "🌅 Hide Background";
+        }
+    });
 </script>
 
 
-  </body>
+</body>
 
-  </html>
-
-
-
-
-
-
+</html>
